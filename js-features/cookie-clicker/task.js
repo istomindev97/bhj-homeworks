@@ -16,7 +16,7 @@ if (counter.textContent % 2 === 0) {
 
 if (lastClickTime) {
        
-    const clickDuration = ((now.getTime() - lastClickTime.getTime()) / 1000).toFixed(2);
+    const clickDuration = (1000 / (now.getTime() - lastClickTime.getTime())).toFixed(2);
     speedometer.textContent = ` ${clickDuration} сек`;
 }
 
