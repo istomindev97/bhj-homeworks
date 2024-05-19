@@ -31,15 +31,6 @@ class Game {
 
 
 	registerEvents() {
-		debugger;
-		/*
-		  TODO:
-		  Написать обработчик события, который откликается
-		  на каждый введённый символ.
-		  В случае правильного ввода символа вызываем this.success()
-		  При неправильном вводе символа - this.fail();
-		  DOM-элемент текущего символа находится в свойстве this.currentSymbol.
-		 */
 		document.addEventListener("keyup", (event) => {
 			if (this.currentSymbol.textContent === event.key) {
 				console.log(event.key + "Мы в ветке успех");
@@ -82,6 +73,8 @@ class Game {
 		const word = this.getWord();
 
 		this.renderWord(word);
+
+		this.startTimer(word.length);
 	}
 
 	getWord() {
