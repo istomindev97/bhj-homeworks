@@ -7,6 +7,29 @@ body {
   align-items: center;
 }
 
+.cart__title {
+  display: none;
+}
+
+.cart__title-active {
+  display: block;
+}
+
+.clear-cart-btn {
+  display: none;
+  background-color: #f44336; 
+  color: white; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+
+.clear-cart-btn-active{
+  display: block;
+}
+
 .cart__product {
   position: relative;
 }
