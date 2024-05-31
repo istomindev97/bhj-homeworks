@@ -6,6 +6,11 @@ elements.forEach(element => {
 	element.addEventListener('click', (event) => {
 		event.preventDefault();
 
+		if (element.contains(document.querySelector('.tooltip_active.tooltip'))) {
+			element.querySelector('.tooltip_active.tooltip').remove();
+			return;
+		}
+
 		if (activeTooltip) {
 			activeTooltip.remove();
 		}
@@ -13,7 +18,7 @@ elements.forEach(element => {
 		const tooltip = document.createElement('div');
 		tooltip.classList.add('tooltip_active', 'tooltip');
 		tooltip.textContent = element.getAttribute('title');
-		document.body.appendChild(tooltip);
+		element.insertAdjacentElement('beforeEnd', tooltip)
 
 		const rect = element.getBoundingClientRect();
 

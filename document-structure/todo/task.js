@@ -7,7 +7,7 @@ window.addEventListener('load', loadTasks);
 btn.addEventListener('click', e => {
 	e.preventDefault();
 
-	if (tasksInput.value) {
+	if (tasksInput.value.trim() != '') {
 		addTask(tasksInput.value);
 		tasksInput.value = '';
 	}
