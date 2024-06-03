@@ -18,7 +18,7 @@ elements.forEach(element => {
 		const tooltip = document.createElement('div');
 		tooltip.classList.add('tooltip_active', 'tooltip');
 		tooltip.textContent = element.getAttribute('title');
-		element.insertAdjacentElement('beforeEnd', tooltip)
+		element.insertAdjacentElement('afterEnd', tooltip)
 
 		const rect = element.getBoundingClientRect();
 
