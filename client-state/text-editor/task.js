@@ -3,9 +3,7 @@ const button = document.querySelector('.btn');
 
 window.addEventListener('load', () => {
     let savedText = localStorage.getItem('text');
-    if (savedText) {
-        editor.value = savedText;
-    }
+    editor.value = savedText;
 });
 
 editor.addEventListener('keyup', () => {
@@ -14,5 +12,6 @@ editor.addEventListener('keyup', () => {
 
 button.addEventListener('click', () => {
     editor.value = '';
+    localStorage.removeItem("text");
 });
 

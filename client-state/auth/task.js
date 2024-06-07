@@ -12,15 +12,15 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     sendLoginRequest(formData);
+    form.reset();
 });
 
 function sendLoginRequest(formData) {
     const requestURL = 'https://students.netoservices.ru/nestjs-backend/auth';
     const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            handleResponse(xhr);
-        }
+    xhr.responseType = 'json'; 
+    xhr.onload = function() { 
+        handleResponse(xhr);
     };
     xhr.onerror = function() {
         console.error('Network error');
@@ -31,7 +31,7 @@ function sendLoginRequest(formData) {
 
 function handleResponse(xhr) {
     if (xhr.status === 200 || xhr.status === 201) {
-        const response = JSON.parse(xhr.responseText);
+        const response = xhr.response; 
         if (response.success === true) {
             showWelcome(response.user_id);
             localStorage.setItem('id', response.user_id);
